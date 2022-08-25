@@ -1,0 +1,73 @@
+<nav class="navbar navbar-dark bg-primary">
+  <div>
+    <form class="flex" role="search">
+      <div class="leftpart">
+        <p class="bb create_new_employee_btn" id="welcome">
+          Welcome {{ get_session_data() }}
+        </p>
+      </div>
+      <div class="rightpart">
+        <button
+          class="bb create_new_employee_btn"
+          style="background-color: #fff"
+          type="submit"
+          id="create_new_employee"
+          routerLink="/create-employee-screen-page"
+        >
+          Create New Employee
+        </button>
+        <button
+          class="bb log_out_btn"
+          routerLink="/logoutpage"
+          style="background-color: #fff"
+          type="submit"
+        >
+          Logout
+        </button>
+      </div>
+    </form>
+  </div>
+</nav>
+
+<!---->
+<div class="d-flex align-content-around flex-wrap">
+  <div
+    *ngFor="let e of employeedetailsapi_obj"
+    class="card"
+    style="width: 18rem"
+    id="a"
+  >
+    <img [src]="e.avatar" class="card-img-top" height="400px" alt="..." />
+    <div class="card-body">
+      <h5 class="card-title" id="1">
+        <b> {{ e.first_name | uppercase }} {{ e.last_name | uppercase }}</b>
+      </h5>
+    </div>
+    <ul class="list-group list-group-flush">
+      <li class="list-group-item" id="2">Employee ID: {{ e.id }}</li>
+      <li class="list-group-item d-flex align-items-center" id="c">
+        Email ID : {{ e.email }}
+      </li>
+    </ul>
+  </div>
+
+  <div
+    *ngFor="let a of allEmployeeData"
+    class="card from_db"
+    style="width: 18rem"
+    id="a"
+  >
+    <img [src]="a.avatar" class="card-img-top" height="400px" alt="..." />
+    <div class="card-body">
+      <h5 class="card-title" id="1">
+        <b> {{ a.firstName | uppercase }} {{ a.lastName | uppercase }}</b>
+      </h5>
+    </div>
+    <ul class="list-group list-group-flush">
+      <li class="list-group-item" id="2">Employee ID: {{ a.EmployeeID }}</li>
+      <li class="list-group-item d-flex align-items-center" id="c">
+        Email ID : {{ a.EmailID }}
+      </li>
+    </ul>
+  </div>
+</div>

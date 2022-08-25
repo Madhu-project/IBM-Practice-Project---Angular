@@ -1,0 +1,37 @@
+#c {
+  color: black;
+  height: 80px;
+}
+#a {
+  margin-left: 50px;
+  margin-bottom: 50px;
+  border: 2px solid black;
+}
+.from_db {
+  color: blue;
+}
+.bb {
+  padding: 10px;
+  border-radius: 10px;
+  font-family: Arial, Helvetica, sans-serif;
+  font-weight: bold;
+  margin-top: 16px;
+}
+.align-content-around {
+  margin-top: 50px;
+}
+.flex {
+  display: flex;
+}
+#welcome {
+  color: aliceblue;
+  font-weight: bolder;
+  font-size: 40px;
+  margin-top: 1px;
+}
+.rightpart {
+  margin-left: 550px;
+}
+.bb {
+  margin-left: 50px;
+}

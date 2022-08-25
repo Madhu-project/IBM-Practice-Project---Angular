@@ -1,0 +1,25 @@
+#id1 {
+  width: 45%;
+  margin-left: 20%;
+  border: 2px solid rgb(46, 98, 220);
+  font-weight: bold;
+  font-size: 20px;
+  border-radius: 3%;
+  margin-left: 30%;
+  margin-top: 5%;
+}
+
+#id2 {
+  width: 30%;
+  text-transform: capitalize;
+  font-weight: bold;
+  font-size: 20px;
+  margin-left: 35%;
+}
+
+#id3 {
+  border: 5px solid black;
+  font-weight: bold;
+  font-family: sans-serif;
+  letter-spacing: 3px;
+}

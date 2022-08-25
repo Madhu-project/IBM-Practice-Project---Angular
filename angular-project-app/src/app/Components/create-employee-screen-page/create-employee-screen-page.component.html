@@ -1,0 +1,178 @@
+<!-- 
+<form action="" [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+  <div class="">
+    <label for="fName">Enter First Name</label>
+    <input
+      type="text"
+      id="fName"
+      name="firstName"
+      formControlName="firstName"
+    />
+  </div>
+  <small *ngIf="firstName && firstName.invalid && firstName.touched"
+    >Enter data</small
+  >
+
+  <div class="">
+    <label for="lName">Enter Last Name</label>
+    <input type="text" id="lName" name="lastName" formControlName="lastName" />
+  </div>
+  <div class="">
+    <label for="password">Enter Password</label>
+    <input type="password" />
+  </div>
+
+  <div class="mb-3">
+    <label for="formFile" class="form-label">Default file input example</label>
+    <input class="form-control" type="file" id="formFile" />
+  </div>
+
+  <button type="submit">Submit</button>
+</form> -->
+<nav class="navbar navbar-dark bg-primary">
+  <form class="flex" role="search" id="spacing">
+    <button
+      class="bb log_out_btn"
+      style="background-color: #fff"
+      type="submit"
+      routerLink="/employee-dashboard-page"
+    >
+      Dash-Board
+    </button>
+    <button
+      class="bb log_out_btn"
+      style="background-color: #fff"
+      type="submit"
+      routerLink="/logoutpage"
+    >
+      Logout
+    </button>
+  </form>
+</nav>
+<div class="row">
+  <div class="d-flex align-content-around flex-wrap">
+    <div
+      *ngFor="let e of allEmployeeData"
+      class="card"
+      style="width: 18rem"
+      id="a"
+    >
+      <img [src]="e.avatar" class="card-img-top" height="400px" alt="..." />
+      <div class="card-body">
+        <h5 class="card-title" id="1">
+          <b> {{ e.firstName | uppercase }} {{ e.lastName | uppercase }}</b>
+        </h5>
+      </div>
+      <ul class="list-group list-group-flush">
+        <li class="list-group-item" id="2">Employee ID: {{ e.EmployeeID }}</li>
+        <li class="list-group-item d-flex align-items-center" id="c">
+          Email ID : {{ e.EmailID }}
+        </li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="row" id="editing1">
+    <form [formGroup]="create_employer_Form" (ngSubmit)="createemployee()">
+      <div class="mb-3">
+        <label for="Firstname" class="form-label">First Name</label>
+        <input
+          type="text"
+          class="form-control"
+          id="exampleInputfirstname"
+          aria-describedby="emailHelp"
+          formControlName="firstName"
+          [(ngModel)]="dataBody.firstName"
+          name="firstName"
+        />
+        <span
+          style="color: red"
+          *ngIf="firstName && firstName.invalid && firstName.touched"
+          >This input field is not valid
+        </span>
+        <span
+          style="color: red"
+          *ngIf="create_employer_Form.controls.firstName.errors"
+          >please remove space</span
+        >
+      </div>
+
+      <div class="mb-3">
+        <label for="Lastname" class="form-label">Last Name</label>
+        <input
+          type="text"
+          class="form-control"
+          id="exampleInputlastname"
+          aria-describedby="emailHelp"
+          formControlName="lastName"
+          [(ngModel)]="dataBody.lastName"
+          name="lastName"
+        />
+        <span
+          style="color: red"
+          *ngIf="lastName && lastName.invalid && lastName.touched"
+          >This input field is not valid</span
+        >
+      </div>
+
+      <div class="mb-3">
+        <label for="EmployeeID" class="form-label">Employee ID</label>
+        <input
+          type="text"
+          class="form-control"
+          id="exampleInputEmployeeID"
+          aria-describedby="emailHelp"
+          formControlName="EmployeeID"
+          [(ngModel)]="dataBody.EmployeeID"
+          name="EmployeeID"
+        />
+        <span
+          style="color: red"
+          *ngIf="EmployeeID && EmployeeID.invalid && EmployeeID.touched"
+          >This input field is not valid</span
+        >
+        <!-- <span
+          style="color: red"
+          *ngIf="create_employer_Form.controls.EmployeeID.errors === null"
+          >Enter number</span
+        > -->
+      </div>
+      <div class="mb-3">
+        <label for="EmailID" class="form-label">Email ID</label>
+        <input
+          type="text"
+          class="form-control"
+          id="exampleInputEmailID"
+          aria-describedby="emailHelp"
+          formControlName="EmailID"
+          [(ngModel)]="dataBody.EmailID"
+          name="EmailID"
+        />
+        <span
+          style="color: red"
+          *ngIf="EmailID && EmailID.invalid && EmailID.touched"
+          >This input field is not valid</span
+        >
+      </div>
+      <div>
+        <input
+          type="file"
+          (change)="onFileSelected($event)"
+          formControlName="avatar"
+          [(ngModel)]="dataBody.avatar"
+          name="avatar"
+        />
+      </div>
+      <br />
+      <button
+        (click)="reloadCurrentPage()"
+        routerLink="/create-employee-screen-page"
+        type="submit"
+        class="btn btn-primary"
+        [disabled]="create_employer_Form.invalid"
+      >
+        Submit
+      </button>
+    </form>
+  </div>
+</div>
